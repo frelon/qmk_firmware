@@ -15,14 +15,17 @@
  */
 #include QMK_KEYBOARD_H
 
-#define SE_PLUS KC_MINS
-#define SE_SLSH KC_AMPR
-#define SE_BSLSH ALGR(SE_PLUS)
+#define SE_PLUS KC_MINS // +
+#define SE_SLSH KC_AMPR // /
+#define SE_BSLSH ALGR(SE_PLUS) // Backslash
 
-#define SE_OBR ALGR(KC_8)
-#define SE_CBR ALGR(KC_9)
-#define SE_CCRL ALGR(KC_0)
-#define SE_OCRL ALGR(KC_7)
+#define SE_QUOT KC_NUHS // '
+#define SE_LABK KC_NUBS // <
+
+#define SE_OBR ALGR(KC_8) // [
+#define SE_CBR ALGR(KC_9) // ]
+#define SE_OCRL ALGR(KC_7) // {
+#define SE_CCRL ALGR(KC_0) // }
 
 uint16_t copy_paste_timer;
 
@@ -42,9 +45,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * | ESC    |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  Bspc  |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * | LSFT   |   A  |   S  |  D   |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : |  ' "   |
+ * | LSFT   |   A  |   S  |  D   |   F  |   G  |                              |   H  |   J  |   K  |   L  | Ö    |  Ä     |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | LCTL   |   Z  |   X  |   C  |   V  |   B  |Gaming|      |  | Del  |Leader|   N  |   M  | ,  < | . >  | /  ? |  Enter |
+ * | LCTL   |   Z  |   X  |   C  |   V  |   B  |Gaming|      |  | Del  |Leader|   N  |   M  | ,  < | . >  | -    |  Enter |
  * `----------------------+------+------+------+------+      |  |------+------+------+------+------+----------------------'
  *                        | GUI  | Alt  |      |      |      |  | LAlt | Space|      | Tab  | AltGr|
  *                        |      |      | Lower| Tab  | Space|  |      | Nav  | Raise|      |      |
@@ -62,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * |        | 1    | 2    | 3    | 4    | 5    |                              | 6    | 7    | 8    | 9    | 0    |        |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |        | GUI+1| GUI+2| GUI+3| GUI+4| GUI+5|                              | GUI+6| GUI+7| GUI+8| GUI+9| ,    | å      |
+ * |        | GUI+1| GUI+2| GUI+3| GUI+4| GUI+5|                              | GUI+6| GUI+7| GUI+8| GUI+9| ,    | Å      |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
  * |        |LALT+1|LALT+2|LALT+3|LALT+4|LALT+5|      |      |  |      |      | +    |      |      |      |      |        |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
@@ -91,9 +94,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [RAISE] = LAYOUT(
-      _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, SE_OCRL, SE_OBR,  SE_CBR,   SE_CCRL, KC_BSLS,
-      _______, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,                                      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_PERC, KC_QUOT,
-      _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD, _______, _______, _______, _______, SE_SLSH, SE_BSLSH,KC_COMM, KC_DOT,   KC_SLSH, KC_MINS,
+      _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, SE_OCRL, SE_OBR,  SE_CBR,    SE_CCRL, KC_BSLS,
+      _______, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,                                      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,  KC_PERC, SE_QUOT,
+      _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD, _______, _______, _______, _______, SE_SLSH, SE_BSLSH,SE_LABK, S(SE_LABK),KC_SLSH, KC_MINS,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 /*
