@@ -27,6 +27,9 @@
 #define SE_OCRL ALGR(KC_7) // {
 #define SE_CCRL ALGR(KC_0) // }
 
+#define SE_PIPE RALT(KC_NUBS) // |
+#define SE_TILD ALGR(KC_RBRC) // ~
+
 uint16_t copy_paste_timer;
 
 enum layers {
@@ -83,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Raise Layer: Symbols
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |        |  !   |  @   |  {   |  }   |  |   |                              |      |  {   |  [   | ]    | }    |  \     |
+ * |        |  !   |  @   |  {   |  }   |  |   |                              | |    |  {   |  [   | ]    | }    |  ~     |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |        |  #   |  $   |  (   |  )   |  `   |                              | Left | Down | Up   | Right|  %   |  ' "   |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
@@ -94,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [RAISE] = LAYOUT(
-      _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, SE_OCRL, SE_OBR,  SE_CBR,    SE_CCRL, KC_BSLS,
+      _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     SE_PIPE, SE_OCRL, SE_OBR,  SE_CBR,    SE_CCRL, SE_TILD,
       _______, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,                                      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,  KC_PERC, SE_QUOT,
       _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD, _______, _______, _______, _______, SE_SLSH, SE_BSLSH,SE_LABK, S(SE_LABK),KC_SLSH, KC_MINS,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
